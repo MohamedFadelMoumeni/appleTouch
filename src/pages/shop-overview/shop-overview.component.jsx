@@ -1,61 +1,39 @@
 import React from 'react';
 import {Grid, Typography} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
-import Directory from '../../components/Directory/Directory.component';
-import Dropdown from '../../components/dropdown/dropdown.component';
-
-const useStyles = makeStyles({
-    headShop: {
-        height: '50vh',
-        backgroundImage:'url("https://www.apple.com/v/airpods-max/b/images/overview/audio_quality_spatial_figure__clxltt2m0z2a_large.jpg")',
-        backgroundPosition:'center',
-        backgroundSize:'cover',
-        backgroundRepeat:'no-repeat',
-        color: '#fff',
-    },
-    headShopItem :{
-        height: '100%',
-        background: 'rgba(0, 0, 0, 0.5)',
-        display: 'flex',
-        alignItems:'center',
-        justifyContent:'center'
-    },
-    titleShop: {
-        fontWeight:'bolder'
-    },
-    DirectoryGrid: {
-        background: '#fff',
-        padding: '3em 0'
-    }
-})
-const ShopOverview = ({match: {params: {collectionId}}}) => {
+import {selectShopCategories} from '../../redux/shop_data/shop_data.selectors';
+import {connect} from 'react-redux';
+import CardComponent from '../../components/card-item/card-item.component';
+import Spinner from '../../components/Spinner/Spinner.component';
+import useStyles from './shop-overview.styles';
+const ShopOverview = ({match: {params: {collectionId}}, collection}) => {
     const classes = useStyles();
+    
     return (
 
+      collection ? 
+      (
         <Grid container>
-            <Grid item xs={12} className={classes.headShop} container>
-             <Grid item xs={12} className={classes.headShopItem}>
-                 <Typography variant="h3" className={classes.titleShop}>Airpods Max.</Typography>
-             </Grid>
-            </Grid>
-            <Grid className={classes.DirectoryGrid} item xs={12} container >
-                <Grid item sm={1} />
-                <Grid item xs={10} container>
-                   <Grid item xs={12} container  alignItems="center">
-                   <Grid item  style={{flexGrow : '1'}}>
-                           <Typography variant="subtitle1">8 items</Typography>
-                       </Grid>
-                       <Grid item >
-                           <Dropdown />
-                       </Grid>
-                   </Grid>
-                  
-                </Grid>
-                <Grid item sm={1} />
-            </Grid>
+        <Grid item xs={12} className={classes.headShop} container style={{backgroundImage: `url(${collection.bgImg})`}}>
+         <Grid item xs={12} className={classes.headShopItem}>
+             <Typography variant="h3" className={classes.titleShop}>{collection.name}.</Typography>
+         </Grid>
         </Grid>
-       
+       <Grid item xs={12} container className={classes.directory}>
+           <Grid item xs={12} className={classes.items}  > 
+           {
+             
+             collection.items.map(item => (
+               <CardComponent key={item.id} item={item}/> 
+           )) 
+          }
+               
+           </Grid>
+       </Grid>
+    </Grid>
+      ): <Spinner />
     )
 }
-
-export default ShopOverview;
+const mapStateToProps = (state, ownProps) => ({
+    collection: selectShopCategories(ownProps.match.params.collectionId)(state)
+})
+export default React.memo(connect(mapStateToProps)(ShopOverview));

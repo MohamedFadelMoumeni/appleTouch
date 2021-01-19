@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {withRouter} from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import Badge from '@material-ui/core/Badge';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -14,40 +14,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ContactlessIcon from '@material-ui/icons/Contactless';
 import DrawerComponent from '../Drawer/Drawer.component';
-const useStyles = makeStyles((theme) => ({
-  header: {
-    backgroundColor : 'rgba(0, 0, 0, 0.92)'
-  },
-    root: {
-      flexGrow: 1,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
-    },
-    drawer : {
-       display: 'flex',
-       flexDirection: 'column',
-       alignItems:'center',
-       background: '#000',
-       color: '#fff',
-       height: '100%',
-       padding: '2em 0'
-    },
-    cart: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems:'center',
-      background: '#fff',
-      color: '#000',
-      height: '100%',
-      padding: '2em 0'
+import useStyles from './Header.styles';
+import {selectShopData} from '../../redux/shop_data/shop_data.selectors';
 
-    }
-  }));
-const Header = ({history}) => {
+import {connect} from 'react-redux';
+
+
+const Header = ({history, collections}) => {
     const [responsive , setResponsive] = useState(false);
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [cartOpen, setCartOpen] = useState(false);
@@ -83,12 +56,22 @@ keepMounted
 open={Boolean(anchorEl)}
 onClose={handleClose}
 >
-<MenuItem onClick={() => {handleClose(); history.push('/shop/airpods')}}>Airpods</MenuItem>
-<MenuItem onClick={() => {handleClose(); history.push('/shop/airpods-pro')}}>Airpods Pro</MenuItem>
-<MenuItem onClick={() => {handleClose(); history.push('/shop/airpods-max')}}>Airpods Max</MenuItem>
+<MenuItem onClick={() => {handleClose(); history.push('/shop')}}>All</MenuItem>
+{
+  collections ? 
+  (
+    collections.map(collection => (
+      <MenuItem key={collection.id} onClick={() => {handleClose(); history.push(`${collection.link}`)}}>{collection.name}</MenuItem>
+  
+    ))
+  ) : null
+}
 </Menu>
   <IconButton onClick={() => setCartOpen(!cartOpen)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-    <LocalMallIcon />
+  <Badge badgeContent={4} color="primary">
+  <LocalMallIcon />
+</Badge>
+    
   </IconButton>
   <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
     <PersonIcon />
@@ -129,7 +112,7 @@ onClose={handleClose}
      </DrawerComponent>
             <Typography variant="h6" className={classes.title}>
               <Button  startIcon={<ContactlessIcon />} style={{color: '#fff', fontSize: '1.2em'}} onClick={() => history.push('/')}>
-              appleTouch.
+              earTouch.
               </Button>
             </Typography>
             {
@@ -141,4 +124,8 @@ onClose={handleClose}
       </div>
     )
 }
-export default withRouter(Header);
+
+const mapStateToProps = state => ({
+  collections: selectShopData(state)
+})
+export default connect(mapStateToProps)(withRouter(Header));

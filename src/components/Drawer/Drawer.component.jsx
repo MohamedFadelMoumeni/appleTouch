@@ -2,14 +2,13 @@ import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 
 
-
 const DrawerComponent = ({ children, handleClose, openState, classname, leftSide}) => {
     return (
        <div >
            <Drawer
             
             {...{
-              anchor: `${leftSide ? 'left' : 'right'}`,
+              anchor: `${leftSide ? 'left' : 'top'}`,
               open: openState,
               onClose: handleClose,
             }}

@@ -3,17 +3,21 @@ import Header from '../../components/Header/Header.component';
 import Head from '../../components/Head/Head.component';
 import ShopSection from '../../components/shop_section/shop_section.component';
 import Popular from '../../components/popular_section/popular_section.component';
-import ITEM from './item';
+import {selectShopData, selectIsFetching} from '../../redux/shop_data/shop_data.selectors';
+import {connect} from 'react-redux';
+import Spinner from '../../components/Spinner/Spinner.component';
 
-const Homepage = () => {
+const Homepage = ({collections, isFetched}) => {
+    
     return (
         <>
     
         <Head />
         {
-            ITEM.map(item => (
-                <ShopSection key={item.id} item={item} />
-            ))
+            isFetched ? 
+            collections.map(collection => (
+                <ShopSection key={collection.id} item={collection} />
+            )) : <Spinner />
         }
         <Popular/>
         
@@ -23,4 +27,9 @@ const Homepage = () => {
     )
 }
 
-export default Homepage;
+const mapStateToPorps = state => ({
+    collections : selectShopData(state),
+    isFetched : selectIsFetching(state)
+})
+
+export default connect(mapStateToPorps)(Homepage);

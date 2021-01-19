@@ -1,31 +1,8 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/styles';
 import {Typography} from '@material-ui/core';
-
-const useStyle = makeStyles({
-   itemHead:{
-    display: 'flex',
-    flexDirection:'column',
-    alignItems:'center',
-    justifyContent:'center',
-    height: '100%',
-    width:'100%'
-   },
-   itemDetails : {
-       color: '#fff',
-       flex: ".5",
-       textAlign:'center'
-   },
-   img :{
-       width: '50%',
-       flex: '.5',
-   },
-   price :{
-       textAlign : 'center'
-
-   }
-})
-const ImageHead = ({imgUrl, title, price}) => {
+import useStyle from './Image_head.styles';
+const ImageHead = ({item}) => {
+    const {imgUrl, title, price} = item;
     const classes = useStyle();
     return(
         <div className={classes.itemHead}>

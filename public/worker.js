@@ -1,4 +1,4 @@
-var CACHE_NAME = 'appleTouch.';
+var CACHE_NAME = 'earTouch.';
 var urlsToCache = [
   '/',
   '/completed'
@@ -33,7 +33,7 @@ self.addEventListener('fetch', event => {
 
 // Update a service worker
 self.addEventListener('activate', event => {
-  var cacheWhitelist = ['appleTouch.'];
+  var cacheWhitelist = ['earTouch.'];
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
