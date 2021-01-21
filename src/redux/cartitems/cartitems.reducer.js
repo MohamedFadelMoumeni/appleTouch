@@ -1,5 +1,5 @@
 import CONSTANT_TYPES from '../redux.types';
-import addItemToCart from './cartitems.utils';
+import {addItemToCart, decreaseItemFromCart} from './cartitems.utils';
 const INITIAL_STATE = {
     cartItems : []
 }
@@ -11,11 +11,13 @@ const cartReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 cartItems : addItemToCart(state.cartItems, action.payload)
             }
-        case CONSTANT_TYPES.REMOVE_ITEMS_FROM_CART:
-            return {
+        case CONSTANT_TYPES.DECREASE_ITEM_FROM_CART:
+            return{
                 ...state,
-                cartItems : state.cartItems.filter(item => item.name != action.payload.name)
+                cartItems: decreaseItemFromCart(state.cartItems, action.payload)
             }
+        
+        
         default:
             return state
             

@@ -19,8 +19,10 @@ import {selectShopData} from '../../redux/shop_data/shop_data.selectors';
 
 import {connect} from 'react-redux';
 
+import {selectTotalItems} from '../../redux/cartitems/cartitems.selectors';
 
-const Header = ({history, collections}) => {
+
+const Header = ({history, collections, totalItem}) => {
     const [responsive , setResponsive] = useState(false);
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [cartOpen, setCartOpen] = useState(false);
@@ -56,7 +58,7 @@ keepMounted
 open={Boolean(anchorEl)}
 onClose={handleClose}
 >
-<MenuItem onClick={() => {handleClose(); history.push('/shop')}}>All</MenuItem>
+<MenuItem onClick={() => {handleClose(); history.push('/shop')}}>Shop</MenuItem>
 {
   collections ? 
   (
@@ -68,7 +70,7 @@ onClose={handleClose}
 }
 </Menu>
   <IconButton onClick={() => setCartOpen(!cartOpen)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-  <Badge badgeContent={4} color="primary">
+  <Badge badgeContent={totalItem} color="primary">
   <LocalMallIcon />
 </Badge>
     
@@ -107,7 +109,7 @@ onClose={handleClose}
             <DrawerComponent openState={drawerOpen} classname={classes.drawer}  handleClose={handleDrawerClose} leftSide>
              {desktopDesign()}
             </DrawerComponent>
-            <DrawerComponent openState={cartOpen} classname={classes.cart}  handleClose={handleCartCloser} >
+            <DrawerComponent openState={cartOpen} classname={classes.cart}  handleClose={handleCartCloser} cart>
       {desktopDesign()}
      </DrawerComponent>
             <Typography variant="h6" className={classes.title}>
@@ -126,6 +128,7 @@ onClose={handleClose}
 }
 
 const mapStateToProps = state => ({
-  collections: selectShopData(state)
+  collections: selectShopData(state),
+  totalItem : selectTotalItems(state)
 })
 export default connect(mapStateToProps)(withRouter(Header));

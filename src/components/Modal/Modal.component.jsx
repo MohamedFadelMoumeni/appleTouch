@@ -19,13 +19,15 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
       backgroundColor: theme.palette.background.paper,
-      border: '2px solid #000',
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
       width: '80%'
     },
     rightContainer:{
-        textAlign :'left'
+        textAlign :'left',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between'
     },
     old : {
         textDecoration: 'line-through',
@@ -43,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ModalComponent = ({handleOpen, handleClose, state:{openModal}, item, addItemToCart}) => {
     const classes = useStyles();
-    const {imgUrl, name, price} = item;
+    const {imgUrl, name, price, color} = item;
   
     return (
         <div>
@@ -61,15 +63,17 @@ const ModalComponent = ({handleOpen, handleClose, state:{openModal}, item, addIt
           }}
         >
           <Fade in={openModal}>
-            <Grid container  className={classes.paper} justifyContent="center" alignItems="center">
+            <Grid container  className={classes.paper} justifyContent="center" >
                <Grid xs={12} item sm={5} >
-                <img src={imgUrl} alt="" className={classes.imgModal}/>
+                <img src={imgUrl} alt={`${name}`} className={classes.imgModal}/>
                </Grid>
                <Grid item xs={12} sm={7} className={classes.rightContainer}>
-                    <Typography variant="h4" className={classes.instock}>IN STOCK.</Typography>
-                    <h2>{name}</h2>
-                    <h3><span className={classes.old}>200$</span> {`${price}$`}</h3>
+                    <Typography variant="subtitle1" className={classes.instock}>IN STOCK.</Typography>
+                    <Typography variant="h4" >{name}</Typography>
+                    <Typography variant="subtitle1"><span className={classes.old}>200$</span> {`${price}$`}</Typography>
+                    <Typography variant="subtitle1">{`color: ${color}`}</Typography>
                     <Button className="cart-btn" value="Add to Cart"  cartBtn handleClick={() => addItemToCart(item)}/>
+                    <Typography variant="body2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quibusdam, quae sequi magnam maxime dolore laboriosam incidunt excepturi alias officia?</Typography>
                </Grid>
             </Grid>
           </Fade>

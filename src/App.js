@@ -10,6 +10,7 @@ import Spinner from './components/Spinner/Spinner.component';
 import './App.css';
 const Homepage = lazy(() => import('./pages/Homepage/Hompepage.component'));
 const ShopPage = lazy(() => import('./pages/Shop/Shop.component'));
+const CheckOutPage = lazy(() => import('./pages/checkout-page/checkout-page.component'));
 
 
 
@@ -26,6 +27,7 @@ function App({fetchCollectionsStart}) {
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route  path="/shop" component={ShopPage} />
+        <Route exact path="/checkout" component={CheckOutPage}/>
       </Switch>
       <Footer />
      

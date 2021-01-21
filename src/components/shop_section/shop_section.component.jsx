@@ -17,7 +17,7 @@ const ShopSection = ({item, history}) => {
                         (
                             <>
                             <Grid item xs={12} sm={6} className={classes.imgGrid}>
-                            <img className={classes.imgSection} src={imgUrl} alt=""/>
+                            <img className={classes.imgSection} src={imgUrl} alt={`${name}`}/>
                             </Grid>
                             <Grid item xs={12} sm={6}>
                             <Typography variant="h2" style={{color: '#fff', textAlign: 'left'}}>{name}</Typography>
@@ -34,7 +34,7 @@ const ShopSection = ({item, history}) => {
                          <Button variant="outlined" style={{color: '#fff'}} onClick={() => history.push(`${link}`)}>Buy Now</Button>
                      </Grid>
                      <Grid item xs={12} sm={6}>
-                     <img className={classes.imgSection} src={imgUrl} alt=""/>
+                     <img className={classes.imgSection} src={imgUrl} alt={`${name}`}/>
 
                      </Grid>
                             </>

@@ -4,12 +4,12 @@
   margin: 1em 0;
   
 }
-img{
+.card > img{
   width: 70%;
   cursor: pointer;
   transition: all .3s;
 }
-img:hover{
+.card > img:hover{
   transform: scale(1.03);
 }
 @media screen and (max-width: 600px){
