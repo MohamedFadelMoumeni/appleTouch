@@ -18,7 +18,7 @@ const CardComponent = ({item}) => {
   return(
        <>
        <div className="card" onClick={handleOpen}>
-         <img src={imgUrl} alt={`${name}`}/>
+         <img src={imgUrl} alt={`${name}`} />
          <div className="details">
            <p>{name}</p>
            <p>{`${price}$`}</p>

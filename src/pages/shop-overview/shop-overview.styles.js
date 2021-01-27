@@ -25,7 +25,9 @@ const useStyles = makeStyles({
         display: 'flex',
         flexWrap:'wrap',
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        color : '#000'
+       
     },
     directory :{
         background :'#fff'

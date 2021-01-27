@@ -9,7 +9,7 @@ const ImageHead = ({item}) => {
           <img className={classes.img} src={imgUrl} alt={`${title}`}/>
            <div className={classes.itemDetails}>
                <Typography variant="h3">{title}</Typography>
-               <Typography variant="h5" className={classes.price}>{`${price}.00$`}</Typography>
+               <Typography variant="h5" className={classes.price}>{` From ${price}.00$`}</Typography>
            </div>
         </div>
     )

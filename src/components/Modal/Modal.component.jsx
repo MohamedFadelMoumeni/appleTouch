@@ -16,12 +16,14 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+     
     },
     paper: {
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: '#05192d',
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
-      width: '80%'
+      width: '80%',
+      
     },
     rightContainer:{
         textAlign :'left',
@@ -64,16 +66,16 @@ const ModalComponent = ({handleOpen, handleClose, state:{openModal}, item, addIt
         >
           <Fade in={openModal}>
             <Grid container  className={classes.paper} justifyContent="center" >
-               <Grid xs={12} item sm={5} >
+               <Grid xs={12} item sm={5}>
                 <img src={imgUrl} alt={`${name}`} className={classes.imgModal}/>
                </Grid>
                <Grid item xs={12} sm={7} className={classes.rightContainer}>
                     <Typography variant="subtitle1" className={classes.instock}>IN STOCK.</Typography>
-                    <Typography variant="h4" >{name}</Typography>
-                    <Typography variant="subtitle1"><span className={classes.old}>200$</span> {`${price}$`}</Typography>
-                    <Typography variant="subtitle1">{`color: ${color}`}</Typography>
+                    <Typography variant="h4" style={{fontWeight: 'bold', color: 'rgb(252, 206, 13)'}}>{name}</Typography>
+                    <Typography variant="subtitle1" style={{fontWeight: 'bolder', color: '#fff'}}><span className={classes.old}>200$</span> {`${price}$`}</Typography>
+                    <Typography variant="subtitle1" style={{fontWeight: 'bolder', color: '#fff'}}>{`color: ${color}`}</Typography>
                     <Button className="cart-btn" value="Add to Cart"  cartBtn handleClick={() => addItemToCart(item)}/>
-                    <Typography variant="body2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quibusdam, quae sequi magnam maxime dolore laboriosam incidunt excepturi alias officia?</Typography>
+                    <Typography variant="body2" style={{color: '#fff'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quibusdam, quae sequi magnam maxime dolore laboriosam incidunt excepturi alias officia?</Typography>
                </Grid>
             </Grid>
           </Fade>

@@ -5,6 +5,7 @@ import './checkout-page.styles.css';
 import {connect} from 'react-redux';
 import {selectCart, selectTotalPrice} from '../../redux/cartitems/cartitems.selectors';
 import CartEdit from '../../components/cart/cart.component';
+import StripeElement from '../../components/stripe-element/stripe-element.component';
 
 const useStyles = makeStyles({
     checkoutGrid:{
@@ -26,7 +27,6 @@ const CheckoutPage = ({cartItems, totalPrice}) => {
         <Grid item xs={12} container>
             <Grid item xs={1} />
             <Grid item xs={10} container>
-                
                 <Grid item xs={12} sm={6}>
                  <div className="item-card">
                      <div className="item_header">
@@ -63,6 +63,14 @@ const CheckoutPage = ({cartItems, totalPrice}) => {
                          </div>
                      </div>
                  </div>
+                </Grid>
+                <Grid item sm={6}>
+                    <div className="stripe">
+                        <h2>PAYEMENT</h2>
+                        <div className="details-payement">
+                            <p>We accept : </p>
+                        </div>
+                    </div>
                 </Grid>
             </Grid>
             <Grid item xs={1} />

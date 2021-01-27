@@ -11,6 +11,7 @@ import {connect} from 'react-redux';
 
 const useStyles= makeStyles({
   drop: {
+    background : '#05192d',
     width: '100%',
     display:'flex',
     flexDirection: 'column',
@@ -18,7 +19,7 @@ const useStyles= makeStyles({
    
   },
   btnCheckout: {
-    background: '#000',
+    background: 'rgb(3, 239, 98)',
     color: '#fff',
     border: '0',
     width: '300px',
@@ -46,7 +47,7 @@ const DrawerComponent = ({ children, handleClose, openState, classname, leftSide
            <>
             <div className={classes.drop}>
                <DirectoryItems />
-               <Button value="checkout"className={classes.btnCheckout} handleClick={() => {history.push('/checkout'); handleClose()}} disabled={cartitems.length ? false : true}/>
+               <Button value="CHECKOUT"className={classes.btnCheckout} handleClick={() => {history.push('/checkout'); handleClose()}} disabled={cartitems.length ? false : true}/>
                
             </div>
            

@@ -3,17 +3,14 @@ import {makeStyles} from '@material-ui/styles';
 const useStyles = makeStyles({
    
     sectionContainer : {
-        backgroundPosition : 'center',
-        backgroundSize : 'cover',
-        backgroundRepeat :'no-repeat',
-        backgroundAttachment : 'fixed'
+        background : '#05192d'
     },
     itemContainer : {
-        backgroundColor : 'rgba(0, 0, 0, .5)',
+     
         padding: '2.5em 1em'
     },
     imgSection : {
-        width: '90%',
+        width: '80%',
         transition: 'all .8s',
         textAlign :'center',
         cursor: 'pointer',
@@ -23,7 +20,13 @@ const useStyles = makeStyles({
     },
     imgGrid : {
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'center'
+    },
+    imgGridSecond : {
+        
+        display: 'flex',
+        justifyContent: 'flex-end',
         alignItems: 'center'
     }
  });

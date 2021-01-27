@@ -1,12 +1,10 @@
 import React from 'react';
-import Header from '../../components/Header/Header.component';
 import Head from '../../components/Head/Head.component';
 import ShopSection from '../../components/shop_section/shop_section.component';
-import Popular from '../../components/popular_section/popular_section.component';
 import {selectShopData, selectIsFetching} from '../../redux/shop_data/shop_data.selectors';
 import {connect} from 'react-redux';
 import Spinner from '../../components/Spinner/Spinner.component';
-
+import ClientReview from '../../components/client-review/client-review.component';
 const Homepage = ({collections, isFetched}) => {
     
     return (
@@ -19,7 +17,7 @@ const Homepage = ({collections, isFetched}) => {
                 <ShopSection key={collection.id} item={collection} />
             )) : <Spinner />
         }
-        <Popular/>
+        <ClientReview/>
         
         
         </>

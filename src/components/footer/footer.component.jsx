@@ -7,7 +7,7 @@ import PhoneIcon from '@material-ui/icons/Phone';
 
 const useStyles = makeStyles({
     footerGrid:{
-        background: 'rgba(0, 0, 0, .9)',
+        background: '#05192d',
         color: '#fff',
         textAlign: 'center',
         padding: '1em 0'

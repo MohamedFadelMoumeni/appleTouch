@@ -13,9 +13,10 @@ const useStyles = makeStyles({
       justifyContent:'center',
       alignItems:'center',
       width: '300px',
-      margin : '0 1em',
+      margin : '1em',
       textAlign : 'center',
-      borderBottom: '1px solid #000'
+      
+      color: '#fff'
   },
   cartItemImg: {
       width: '40%'
@@ -49,7 +50,7 @@ const DirectoryItems = ({cartitems}) => {
                  </div>
               
            ))
-            ) : (<h2 style={{textAlign:'center'}}>No Items.</h2>)
+            ) : (<h2 style={{textAlign:'center', color: '#fff'}}>No Items.</h2>)
         }
       </div>
     )

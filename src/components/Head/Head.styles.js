@@ -2,14 +2,10 @@ import {makeStyles} from '@material-ui/styles';
 
 const useStyles = makeStyles({
     prevContainer : {
-      backgroundImage: `url('https://www.apple.com/v/airpods-2nd-generation/b/images/overview/battery__f8c24btnp5ei_large.jpg')`,
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      backgroundAttachment: 'fixed'
+      backgroundColor : '#05192d',
     },
     mainContainer: {
-      backgroundColor : 'rgba(0, 0, 0, 0.9)',
+      backgroundColor : '#05192d',
      padding :'5em 0',
       color: '#fff',
       
@@ -17,7 +13,8 @@ const useStyles = makeStyles({
     paper: {
       backgroundColor: 'rgba(0, 0, 0, 0)',
       color: '#fff',
-      borderRadius: '10px'
+      borderRadius: '10px',
+      
   
     },
     title : {

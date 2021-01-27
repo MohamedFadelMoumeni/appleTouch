@@ -1,0 +1,19 @@
+.pub {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    height: 300px;
+    width: 300px;
+    z-index: 200;
+    background-image: url('./AestheicLine.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: all 1s;
+    
+}
+.delete {
+    position: absolute;
+    left: 10px;
+}

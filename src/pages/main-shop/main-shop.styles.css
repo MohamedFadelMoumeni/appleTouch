@@ -10,18 +10,19 @@
 .hello {
     background: #fff;
     color :#000;
-    border: 1px solid #000;
+    border: 2px solid rgb(3, 239, 98);
     padding: 1em 2em;
     cursor: pointer;
     margin: 1em;
     width: 300px;
-    font-size: 1em;
+    font-size: 1.1em;
     outline: none;
     text-align: center;
+    transition: all .5s;
 
 }
 .hello:hover{
-    background-color: #000;
+    background-color: rgb(9, 202, 86);
     color :#fff;
     border: 1px solid #fff;
 }

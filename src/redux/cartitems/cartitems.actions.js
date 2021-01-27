@@ -13,3 +13,6 @@ export const decreaseItemFromCart = (item) =>({
     type: CONSTANT_TYPES.DECREASE_ITEM_FROM_CART,
     payload: item
 })
+export const cleanCartItems = () => ({
+    type: CONSTANT_TYPES.CLEAN_CART_ITEMS
+})

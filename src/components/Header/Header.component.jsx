@@ -16,18 +16,38 @@ import ContactlessIcon from '@material-ui/icons/Contactless';
 import DrawerComponent from '../Drawer/Drawer.component';
 import useStyles from './Header.styles';
 import {selectShopData} from '../../redux/shop_data/shop_data.selectors';
+import Signin from '../Signin/Signin.component';
+import Avatar from '@material-ui/core/Avatar';
+import ClickAwayListenerComponent from '../ClickAwayListener/ClickAwayListener.component';
 
 import {connect} from 'react-redux';
-
 import {selectTotalItems} from '../../redux/cartitems/cartitems.selectors';
+import {selectCurrentUser} from '../../redux/currentUser/currentUser.selectors';
+import {signOutStart} from '../../redux/currentUser/currentUser.actions';
 
 
-const Header = ({history, collections, totalItem}) => {
+const Header = ({history, collections, totalItem, currentUser, signOutStart}) => {
     const [responsive , setResponsive] = useState(false);
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [cartOpen, setCartOpen] = useState(false);
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const [openSignModal, setOpenSignModal] = useState(false);
+    const [openListener, setOpenListener] = React.useState(false);
+    
+    const handleClickListener = () => {
+      setOpenListener((prev) => !prev);
+    };
+  
+    const handleClickAway = () => {
+      setOpenListener(false);
+    };
+    const handleOpenSignModal = () =>  {
+      setOpenSignModal(true)
+    }
+    const handleCloseSignModal = () => {
+      setOpenSignModal(false);
+    }
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -48,7 +68,7 @@ const Header = ({history, collections, totalItem}) => {
        <Button style={{color: "#fff", marginRight:'2em'}} onClick={() => history.push('/')}>
     Home
   </Button>
-  <Button startIcon={<ExpandMoreIcon />} style={{color: "#fff", marginRight:'2em'}} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+  <Button startIcon={<ExpandMoreIcon />} style={{color: "rgb(3, 239, 98)", marginRight:'2em'}} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
   categories
 </Button>
 <Menu
@@ -70,14 +90,28 @@ onClose={handleClose}
 }
 </Menu>
   <IconButton onClick={() => setCartOpen(!cartOpen)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-  <Badge badgeContent={totalItem} color="primary">
+  <Badge badgeContent={totalItem} >
   <LocalMallIcon />
 </Badge>
     
   </IconButton>
-  <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-    <PersonIcon />
-  </IconButton>
+  {
+    currentUser ? 
+    (
+      <div className={classes.user}>
+        <IconButton onClick={() => handleClickListener()}  >
+        <Avatar  alt="Remy Sharp" src={`${currentUser.photoURL}`} />
+      </IconButton>
+      <ClickAwayListenerComponent signOutStart={signOutStart} currentUser={currentUser} handleClickListener={handleClickListener} openListener={openListener} handleClickAway={handleClickAway}/>
+      </div>
+    )
+    : (
+      <IconButton onClick={handleOpenSignModal} edge="start" className={classes.menuButton} color="inherit" aria-label="menu"> 
+       <PersonIcon />
+    </IconButton>
+    )
+  }
+  
       </>
         
    )
@@ -123,12 +157,18 @@ onClose={handleClose}
             
           </Toolbar>
         </AppBar>
+        <Signin open={openSignModal} handleCloseSignModal={handleCloseSignModal}/>
       </div>
     )
 }
 
 const mapStateToProps = state => ({
   collections: selectShopData(state),
-  totalItem : selectTotalItems(state)
+  totalItem : selectTotalItems(state),
+  currentUser : selectCurrentUser(state)
 })
-export default connect(mapStateToProps)(withRouter(Header));
+const mapDispatchToProps = dispatch => ({
+  signOutStart : () => dispatch(signOutStart())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));
