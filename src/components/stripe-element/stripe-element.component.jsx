@@ -9,7 +9,7 @@ import {selectTotalPrice} from '../../redux/cartitems/cartitems.selectors';
 import {cleanCartItems} from '../../redux/cartitems/cartitems.actions';
 const StripeElement = ({price, cleanCartItems}) =>{
   const priceForStripe = price * 100;
-  const publishableKey = 'pk_test_51HAHbPBE097KOrHbIfFCtnmpJTJul6t909kqejUPz6EZGS4d3pTvDSqTHLoTl7rtzuVZuIVhW7BJGkOBFIU6r1Vy00APIePJtX';
+  const publishableKey = '';
   const onToken = () => {
     cleanCartItems();
       alert("Payment Successful");
