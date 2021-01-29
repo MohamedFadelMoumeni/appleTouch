@@ -2,6 +2,7 @@ import React, {lazy, Suspense, useEffect} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {fetchCollectionsStart} from './redux/shop_data/shop_data.actions';
+import {checkUserSession} from './redux/currentUser/currentUser.actions';
 
 import Header from './components/Header/Header.component';
 import Footer from './components/footer/footer.component';
@@ -18,7 +19,8 @@ const CheckOutPage = lazy(() => import('./pages/checkout-page/checkout-page.comp
 function App({fetchCollectionsStart}) {
   useEffect(() => {
     fetchCollectionsStart();
-  }, [fetchCollectionsStart])
+    checkUserSession()
+  }, [fetchCollectionsStart, checkUserSession])
  
   return (
     <Suspense fallback={<Spinner />}>
@@ -39,7 +41,8 @@ function App({fetchCollectionsStart}) {
   );
 }
 const mapDispatchToProps = dispatch => ({
-  fetchCollectionsStart : () => dispatch(fetchCollectionsStart())
+  fetchCollectionsStart : () => dispatch(fetchCollectionsStart()),
+  checkUserSession : () => dispatch(checkUserSession())
 })
 
 export default connect(null, mapDispatchToProps)(App);

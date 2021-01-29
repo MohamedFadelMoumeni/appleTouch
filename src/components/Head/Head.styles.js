@@ -25,6 +25,18 @@ const useStyles = makeStyles({
     },
     air:{
       color: '#1a508b'
+    },
+    buttonHeadFirst: {
+      color: '#fff', background: 'rgb(3, 239, 98)', width:'350px', padding:'1em 2em', margin: '1.8em 0',
+      '@media screen and (max-width : 1000px)':{
+        width: '90%'
+      }
+    },
+    buttonHeadSecond :{
+      color: 'rgb(252, 206, 13)',border: '2px solid rgb(252, 206, 13)' , width:'350px', padding:'1em 2em',
+      '@media screen and (max-width: 1000px)':{
+        width: '90%'
+      }
     }
   })
 

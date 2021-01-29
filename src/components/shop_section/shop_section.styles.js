@@ -9,25 +9,14 @@ const useStyles = makeStyles({
      
         padding: '2.5em 1em'
     },
-    imgSection : {
-        width: '80%',
-        transition: 'all .8s',
-        textAlign :'center',
-        cursor: 'pointer',
-        '&:hover': {
-         transform :'rotate(5deg)'
-        }
+   
+    titleShopSection:{
+        color: 'rgb(252, 206, 13)', 
+        fontWeight:'bold'
     },
-    imgGrid : {
-        display: 'flex',
-        justifyContent: 'flex-start',
-        alignItems: 'center'
-    },
-    imgGridSecond : {
-        
-        display: 'flex',
-        justifyContent: 'flex-end',
-        alignItems: 'center'
+    btnShopSection:{
+        color: '#fff', 
+        background:'rgb(3, 239, 98)'
     }
  });
 export default useStyles; 

@@ -55,7 +55,7 @@ const ClickAwayListenerComponent = ({openListener, currentUser, signOutStart}) =
           {openListener ? (
             <div className={classes.dropdown}>
               <div className={classes.dropdown__header}>
-              <p>Welcome, <strong>{currentUser.displayName}</strong></p>
+              <p>Welcome, {currentUser.displayName}</p>
               </div>
               <div className={classes.dropdown__details}>
             <Button onClick={() => history.push('/shop')} fullWidth className={classes.btn__details}>Buy something </Button>

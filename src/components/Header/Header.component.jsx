@@ -1,23 +1,27 @@
 import React, {useState, useEffect} from 'react';
 import {withRouter} from 'react-router-dom';
-import Badge from '@material-ui/core/Badge';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import LocalMallIcon from '@material-ui/icons/LocalMall';
-import PersonIcon from '@material-ui/icons/Person';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ContactlessIcon from '@material-ui/icons/Contactless';
+import {
+  Badge,
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  MenuItem,
+  Menu,
+  Avatar
+
+  } from "@material-ui/core";
+  import NearMeIcon from '@material-ui/icons/NearMe';
+  import LocalMallIcon from '@material-ui/icons/LocalMall';
+  import PersonIcon from '@material-ui/icons/Person';
+  import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+  import MenuIcon from '@material-ui/icons/Menu';
+
 import DrawerComponent from '../Drawer/Drawer.component';
 import useStyles from './Header.styles';
 import {selectShopData} from '../../redux/shop_data/shop_data.selectors';
 import Signin from '../Signin/Signin.component';
-import Avatar from '@material-ui/core/Avatar';
 import ClickAwayListenerComponent from '../ClickAwayListener/ClickAwayListener.component';
 
 import {connect} from 'react-redux';
@@ -147,7 +151,7 @@ onClose={handleClose}
       {desktopDesign()}
      </DrawerComponent>
             <Typography variant="h6" className={classes.title}>
-              <Button  startIcon={<ContactlessIcon />} style={{color: '#fff', fontSize: '1.2em'}} onClick={() => history.push('/')}>
+              <Button startIcon={<NearMeIcon style={{color:'rgb(252, 206, 13)'}}/>}   style={{color: '#fff', fontSize: '1.2em'}} onClick={() => history.push('/')}>
               earTouch.
               </Button>
             </Typography>

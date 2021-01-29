@@ -5,8 +5,9 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-
-import {googleSignInStart} from '../../redux/currentUser/currentUser.actions';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import GTranslateIcon from '@material-ui/icons/GTranslate';
+import {googleSignInStart, facebookSignInStart} from '../../redux/currentUser/currentUser.actions';
 import {connect} from 'react-redux';
 const useStyles = makeStyles((theme) => ({
     modalForSignin: {
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-const Signin = ({open, handleCloseSignModal, googleSignInStart}) => {
+const Signin = ({open, handleCloseSignModal, googleSignInStart, facebookSignInStart}) => {
     const classes = useStyles();
    
     return (
@@ -57,8 +58,8 @@ const Signin = ({open, handleCloseSignModal, googleSignInStart}) => {
              <Typography variant="h4" style={{textAlign:'center', paddingBottom: '.5em', textTransform:'uppercase', color:'#fff', fontWeight:'bold'}}>Sign In</Typography>
              <Typography variant="subtitle1" style={{color:'#fff'}}>Log in to save your progress. We won't post anything anywhere.</Typography>
              <div className={classes.btnForSignin}>
-             <Button  onClick={() => googleSignInStart()} variant="contained"  fullWidth style={{marginBottom: '.9em', background:'rgb(3, 239, 98)', color: '#fff'}}>Google</Button>
-             <Button  style={{background:'rgb(3, 239, 98)', color: '#fff'}} variant="contained" color="primary" fullWidth>Facebook</Button>
+             <Button  onClick={() => googleSignInStart()} variant="contained"  fullWidth style={{marginBottom: '.9em', background:'#4285f4', color: '#fff'}}><GTranslateIcon fontSize="large" style={{marginRight:'.3em'}}/>Google</Button>
+             <Button  onClick={() => facebookSignInStart()}  style={{background:'#1877f2', color: '#fff'}} variant="contained"  fullWidth><FacebookIcon fontSize="large" style={{marginRight:'.3em'}}/> Facebook</Button>
              </div>
           </div>
         </Fade>
@@ -69,6 +70,7 @@ const Signin = ({open, handleCloseSignModal, googleSignInStart}) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  googleSignInStart : () => dispatch(googleSignInStart())
+  googleSignInStart : () => dispatch(googleSignInStart()),
+  facebookSignInStart : () => dispatch(facebookSignInStart())
 })
 export default connect(null, mapDispatchToProps)(Signin);

@@ -38,15 +38,15 @@ const ClientReview = () => {
             <Carousel itemsToShow={1} autoPlaySpeed={4500} enableAutoPlay >
              <div className={classes.review}>
                  <Avatar style={{marginBottom:'1em', width: '70px', height: '70px'}} src="http://images02.nicepage.io/a1389d7bc73adea1e1c1fb7e/321a602f753f56b988c51b1d/grayscale-photography-of-woman-wearing-coat-and-fedora-hat-2947337.jpg"/>
-             <Typography variant="h5" className={classes.text}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque impedit pariatur nobis, quo possimus quis ipsum quod voluptatem repellendus officiis.</Typography>
+             <Typography variant="h5" className={classes.text}>I love this site because they have an awesome selection of styles, colors and fabrics. Also, their customer service is great. I have to say it's not as speedy as I'd like due to there's no number to contact someone.</Typography>
              </div>
              <div className={classes.review}>
              <Avatar style={{marginBottom:'1em', width: '70px', height: '70px'}} src="http://images02.nicepage.io/a1389d7bc73adea1e1c1fb7e/1f969468ea205425b70c5c31/pexels-photo-555790.jpg?version="/>
-             <Typography variant="h5" className={classes.text}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque impedit pariatur nobis, quo possimus quis ipsum quod voluptatem repellendus officiis.</Typography>
+             <Typography variant="h5" className={classes.text}>I mostly buy through earTouch. They seem to have the best prices, for whatever I am looking for.</Typography>
              </div>
              <div className={classes.review}>
              <Avatar style={{marginBottom:'1em', width: '70px', height: '70px'}} src="https://www.w3schools.com/w3images/avatar_g2.jpg"/>
-                 <Typography variant="h5" className={classes.text}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque impedit pariatur nobis, quo possimus quis ipsum quod voluptatem repellendus officiis.</Typography>
+                 <Typography variant="h5" className={classes.text}>earTouch is a wonderful online store and the prices are wonderful and humane. Other retailers want much more for their products. I hope you can help earTouch to stay the greatest retailer online.</Typography>
 
              </div>
 

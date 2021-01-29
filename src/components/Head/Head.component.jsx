@@ -27,8 +27,8 @@ const Head = ({items_head}) => {
           <Typography variant="h4" style={{fontSize:'1.3em', maxWidth:'400px'}}>
           We’re on a mission to boost mental health by celebrating feel-good moods every month. 
      </Typography>
-<Button  style={{color: '#fff', background: 'rgb(3, 239, 98)', width:'350px', padding:'1em 2em', margin: '1.8em 0'}} onClick={() => history.push('/shop')}>SHOP NOW.</Button>
-<Button  style={{color: 'rgb(252, 206, 13)',border: '2px solid rgb(252, 206, 13)' , width:'350px', padding:'1em 2em'}}>CONTACT US.</Button>
+<Button className={classes.buttonHeadFirst} onClick={() => history.push('/shop')}>SHOP NOW.</Button>
+<Button className={classes.buttonHeadSecond}>CONTACT US.</Button>
 
         </Grid>
         <Grid item sm={6} xs={12}>

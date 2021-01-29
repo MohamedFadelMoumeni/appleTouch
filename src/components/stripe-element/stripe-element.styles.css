@@ -1,0 +1,25 @@
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1em;
+    width: 200px;
+}
+
+.stripe__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2em;
+}
+.stripe-btn {
+    margin-top: 2em;
+    width: 80%;
+    
+}
+.bottom{
+    padding: 1em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

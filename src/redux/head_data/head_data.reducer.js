@@ -3,14 +3,14 @@ const INITIAL_STATE = {
         {
             id:1,
             price: 20,
-            title: 'Earbus',
+            title: 'Earbuds',
             imgUrl:"https://firebasestorage.googleapis.com/v0/b/appletouch-c9f7c.appspot.com/o/bus1.png?alt=media&token=f9008f4b-436a-4bd0-8d98-9f6d12634983"
             
         },
         {
             id:2,
             price: 10,
-            title: 'Weired Earbus',
+            title: 'Weired Earbuds',
             imgUrl:"https://firebasestorage.googleapis.com/v0/b/appletouch-c9f7c.appspot.com/o/weired2.png?alt=media&token=654750c9-f9fb-478b-9608-41a8964d0abb"
 
         },

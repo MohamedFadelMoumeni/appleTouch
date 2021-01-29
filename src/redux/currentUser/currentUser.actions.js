@@ -19,3 +19,9 @@ export const signOutSuccess = () => ({
 export const signOutFailure = () => ({
   type: CONSTANT_TYPES.SIGN_OUT_FAILED
 })
+export const facebookSignInStart = () => ({
+  type: CONSTANT_TYPES.FACEBOOK_SIGN_IN_START
+})
+export const checkUserSession = () => ({
+  type: CONSTANT_TYPES.CHECK_USER_SESSION
+})
