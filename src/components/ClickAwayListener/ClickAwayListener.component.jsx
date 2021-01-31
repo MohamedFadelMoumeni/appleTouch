@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
       width: '240px',
       color: '#000',
       background:'whitesmoke',
+      '@media screen and (max-width: 1000px)':{
+        position: 'static',
+        width: '90%'
+      }
       
      
     },

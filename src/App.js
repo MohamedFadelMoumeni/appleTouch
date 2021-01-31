@@ -9,40 +9,40 @@ import Footer from './components/footer/footer.component';
 import Spinner from './components/Spinner/Spinner.component';
 
 import './App.css';
-const Homepage = lazy(() => import('./pages/Homepage/Hompepage.component'));
+import Homepage from './pages/Homepage/Hompepage.component';
 const ShopPage = lazy(() => import('./pages/Shop/Shop.component'));
-const CheckOutPage = lazy(() => import('./pages/checkout-page/checkout-page.component'));
+const CheckOutPage = lazy(() => import('./pages/checkout-page/checkout-page.component'))
 
-
-
-
-function App({fetchCollectionsStart}) {
-  useEffect(() => {
-    fetchCollectionsStart();
-    checkUserSession()
-  }, [fetchCollectionsStart, checkUserSession])
+function App({match}) {
  
-  return (
-    <Suspense fallback={<Spinner />}>
-    <div className="app">
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Homepage} />
-        <Route  path="/shop" component={ShopPage} />
-        <Route exact path="/checkout" component={CheckOutPage}/>
-      </Switch>
-      <Footer />
+    useEffect(() => {
+        fetchCollectionsStart();
+        checkUserSession()
+      }, [fetchCollectionsStart, checkUserSession])
      
-    </div>
-    </Suspense>
+      return (
+      <>
+        <Suspense fallback={<Spinner />}>
+        <div className="app">
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+            <Route  path={`/shop`} component={ShopPage} />
+            <Route exact path={`/checkout`} component={CheckOutPage}/>
+          </Switch>
+          <Footer />
+        </div>
+        </Suspense>
     
-   
-
-  );
+        
+      </>
+       
+    
+      );
 }
 const mapDispatchToProps = dispatch => ({
-  fetchCollectionsStart : () => dispatch(fetchCollectionsStart()),
-  checkUserSession : () => dispatch(checkUserSession())
-})
+    fetchCollectionsStart : () => dispatch(fetchCollectionsStart()),
+    checkUserSession : () => dispatch(checkUserSession())
+  })
 
-export default connect(null, mapDispatchToProps)(App);
+  export default connect(null, mapDispatchToProps)(App);
