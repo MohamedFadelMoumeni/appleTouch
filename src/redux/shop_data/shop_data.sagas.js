@@ -14,6 +14,7 @@ function* fetchCollectionsStartAsync(){
     yield put(fetchCollectionsSuccess(data));
     }catch(e){
         yield put(fetchCollectionsFailed(e.message));
+        yield console.log(e.message);
     }
 
     

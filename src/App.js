@@ -13,10 +13,10 @@ import Homepage from './pages/Homepage/Hompepage.component';
 const ShopPage = lazy(() => import('./pages/Shop/Shop.component'));
 const CheckOutPage = lazy(() => import('./pages/checkout-page/checkout-page.component'))
 
-function App({match}) {
+function App({fetchCollectionsStart, checkUserSession}) {
  
     useEffect(() => {
-        fetchCollectionsStart();
+      fetchCollectionsStart();
         checkUserSession()
       }, [fetchCollectionsStart, checkUserSession])
      

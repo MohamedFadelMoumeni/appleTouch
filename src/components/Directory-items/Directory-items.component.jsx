@@ -1,36 +1,10 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/styles';
-import {Grid, Typography} from '@material-ui/core';
+import {Typography} from '@material-ui/core';
 import {selectCart} from '../../redux/cartitems/cartitems.selectors';
 import {connect} from 'react-redux';
+import useStyles from './Directory-items.styles';
 import './Directory-items.styles.css';
 
-
-const useStyles = makeStyles({
-   
-  cartItem: {
-      display: 'flex',
-      justifyContent:'center',
-      alignItems:'center',
-      width: '300px',
-      margin : '1em',
-      textAlign : 'center',
-      
-      color: '#fff'
-  },
-  cartItemImg: {
-      width: '40%'
-  },
-  detailsItem: {
-      textAlign :'left',
-      fontWeight :'0',
-      marginLeft :'.9em'
-  },
-  titleItem : {
-      fontSize: '.9em',
-     
-  }
-})
 const DirectoryItems = ({cartitems}) => {
     const classes = useStyles();
     return (
